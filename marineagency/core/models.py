@@ -169,29 +169,36 @@ class ContactSection(models.Model):
         verbose_name_plural = "Contact Information"
 
 
-# --- 6. Social Media Links (Repeatable) ---
+# --- Social Media Links (Singleton) ---
 class SocialLink(models.Model):
     """
-    Model for individual social media links.
+    Model for storing all social media links in a single record.
     """
 
-    name = models.CharField(
-        max_length=50,
-        verbose_name="Platform Name",
-        help_text="e.g., Facebook, LinkedIn, WhatsApp",
+    fb_link = models.URLField(
+        verbose_name="Facebook URL",
+        blank=True,
+        help_text="Full URL to your Facebook page/profile.",
     )
-    icon_class = models.CharField(
-        max_length=50,
-        verbose_name="Font Awesome Icon Class",
-        help_text="e.g., 'fa-brands fa-facebook-f' or 'fa-brands fa-whatsapp'. Use this for awesome fonts icon.",
+    insta_link = models.URLField(
+        verbose_name="Instagram URL",
+        blank=True,
+        help_text="Full URL to your Instagram profile.",
     )
-    url = models.URLField(
-        verbose_name="Link URL", help_text="The full URL for the social media profile."
+    linkedin_link = models.URLField(
+        verbose_name="LinkedIn URL",
+        blank=True,
+        help_text="Full URL to your LinkedIn profile.",
+    )
+    whatsapp_link = models.URLField(
+        verbose_name="WhatsApp URL",
+        blank=True,
+        help_text="Full URL to your WhatsApp chat link (e.g., https://wa.me/123456789).",
     )
 
     def __str__(self):
-        return f"Social Link: {self.name}"
+        return "Social Links Configuration"
 
     class Meta:
-        verbose_name = "Social Link"
+        verbose_name = "Social Links"
         verbose_name_plural = "Social Links"

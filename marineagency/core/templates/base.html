@@ -98,9 +98,31 @@
 
   <body class="overflow-x-hidden">
     {% include "partials/_navbar.html" %}
+  
+    <!-- Preloader -->
+    <div
+      id="preloader"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-navy-900"
+    >
+      <div class="flex flex-col items-center gap-4">
+        <div
+          class="w-16 h-16 border-4 border-t-gold-400 border-b-transparent border-l-transparent border-r-transparent rounded-full animate-spin"
+        ></div>
+    
+      </div>
+    </div>
+  
     <main>{% block content %}{% endblock content %}</main>
-    {% include "partials/_footer.html" %} {% block extra_scripts %}{% endblock extra_scripts %}
+  
+    {% include "partials/_footer.html" %}
+  
+    {% block extra_scripts %}{% endblock extra_scripts %}
+  
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/ships.js' %}"></script>
+  
+    <script src="{% static 'js/preloader.js' %}"></script>
+    <script src="{% static 'js/modal-preloader.js' %}"></script>
+
   </body>
-</html>
+  </html>

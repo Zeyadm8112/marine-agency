@@ -57,4 +57,9 @@ class ShipAdmin(ModelAdmin):
 
 @admin.register(SocialLink)
 class SocialLinkAdmin(ModelAdmin):
-    list_display = ("name", "icon_class", "url")
+    fieldsets = (
+        (
+            "Social Media Links",
+            {"fields": ("fb_link", "insta_link", "linkedin_link", "whatsapp_link")},
+        ),
+    )

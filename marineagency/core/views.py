@@ -18,6 +18,6 @@ def home(request):
         "featured_ships": Ship.objects.filter(is_featured=True),
         "all_ships": Ship.objects.all(),
         "contact": ContactSection.objects.first(),
-        "social_links": SocialLink.objects.all(),
+        "social_links": SocialLink.objects.first(),
     }
     return render(request, "index.html", context)

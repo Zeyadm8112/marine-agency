@@ -20,19 +20,19 @@
             <span class="mt-1 text-gold-400">
               <i class="fa-solid fa-location-dot"></i>
             </span>
-            <span>Seabound HQ, Pier 7, Maritime Ave, Harbor City</span>
+            <span>{{ contact.address }}</span>
           </li>
           <li class="flex items-start gap-3">
             <span class="mt-1 text-gold-400">
               <i class="fa-solid fa-phone"></i>
             </span>
-            <span>+1 (555) 013-3772</span>
+            <span>{{ contact.phone }}</span>
           </li>
           <li class="flex items-start gap-3">
             <span class="mt-1 text-gold-400">
               <i class="fa-solid fa-envelope"></i>
             </span>
-            <span>brokerage@seabound.co</span>
+            <span> {{ contact.email }}</span>
           </li>
         </ul>
       </div>
@@ -41,9 +41,9 @@
       <div class="rounded-2xl bg-navy-800/80 border border-gold-400/20 p-8 shadow-lg backdrop-blur-sm">
         <h3 class="text-xl font-semibold text-white">Office Hours</h3>
         <ul class="mt-4 space-y-2 text-gray-300">
-          <li class="flex justify-between"><span>Monday – Friday</span><span>09:00 – 18:00</span></li>
-          <li class="flex justify-between"><span>Saturday</span><span>10:00 – 14:00</span></li>
-          <li class="flex justify-between"><span>Sunday</span><span>Closed</span></li>
+          <li class="flex justify-between"><span>{{ contact.open_time_1 }}</span></li>
+          <li class="flex justify-between"><span>{{ contact.open_time_2 }}</span></li>
+          <li class="flex justify-between"><span>{{ contact.open_time_3 }}</span><span>Closed</span></li>
           <li class="mt-3 text-sm text-gray-400">24/7 ops desk available for fixtures and urgent operations.</li>
         </ul>
       </div>
