@@ -39,6 +39,13 @@ body {
   animation: wave-drift 28s ease-in-out infinite alternate;
   pointer-events: none;
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 @keyframes wave-drift {
   0% { background-position: 0% 0%, 100% 0%, 50% 100%; }

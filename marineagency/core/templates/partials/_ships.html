@@ -1,43 +1,106 @@
 <!-- SHIPS -->
 {% load static %}
-<section id="ships" class="py-24 bg-navy-800">
-  <div class="max-w-6xl mx-auto px-6 text-center fade-up">
+<section id="ships" class="py-24 bg-navy-800 relative">
+  <div class="max-w-6xl mx-auto px-6 fade-up text-center">
     <h2 class="text-4xl font-serif text-gold-400">Ships for Sale</h2>
-    <p class="mt-3 text-gray-300">Explore our exclusive listings across cargo, tanker, and offshore sectors.</p>
+    <p class="mt-3 text-gray-300">
+      Explore our exclusive listings across cargo, tanker, and offshore sectors.
+    </p>
 
-    <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Cargo Vessel Card -->
-      <article class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-gold-400/20 shadow-lg transition hover:shadow-2xl hover:scale-105 duration-500">
-        <img src="{% static 'images/cargo-vessal.avif' %}" class="h-56 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:brightness-110">
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500"></div>
-        <div class="p-6 text-left relative z-10">
-          <h3 class="text-lg font-semibold text-gold-400">Cargo Vessels</h3>
-          <p class="mt-2 text-sm text-gray-300">2010 built • 52k DWT • prompt delivery</p>
-          <a href="#contact" class="mt-4 inline-block rounded-full bg-gold-400 px-5 py-2 text-navy-900 font-semibold hover:shadow-lg transition">Inquire</a>
-        </div>
-      </article>
+    <!-- Carousel Wrapper -->
+    <div class="mt-16 relative">
+      <!-- Carousel container -->
+      <div id="carousel" class="flex overflow-x-auto gap-6 md:gap-8 scrollbar-hide">
+        <!-- Cargo Vessel Card -->
+        <article
+          class="group relative rounded-2xl flex-shrink-0 w-[300px] md:w-[320px] overflow-hidden bg-navy-900 border border-gold-400/20 shadow-lg transition hover:shadow-2xl hover:scale-105 duration-500 snap-start"
+        >
+          <img
+            src="{% static 'images/cargo-vessal.avif' %}"
+            class="h-56 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:brightness-110"
+          />
+          <div
+            class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500"
+          ></div>
+          <div class="p-6 text-left relative z-10">
+            <h3 class="text-lg font-semibold text-gold-400">Cargo Vessels</h3>
+            <p class="mt-2 text-sm text-gray-300">
+              2010 built • 52k DWT • prompt delivery
+            </p>
+            <a
+              href="#contact"
+              class="mt-4 inline-block rounded-full bg-gold-400 px-5 py-2 text-navy-900 font-semibold hover:shadow-lg transition"
+              >Inquire</a
+            >
+          </div>
+        </article>
 
-      <!-- Tanker Card -->
-      <article class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-gold-400/20 shadow-lg transition hover:shadow-2xl hover:scale-105 duration-500">
-        <img src="{% static 'images/tankers.avif' %}" class="h-56 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:brightness-110">
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500"></div>
-        <div class="p-6 text-left relative z-10">
-          <h3 class="text-lg font-semibold text-gold-400">Tankers</h3>
-          <p class="mt-2 text-sm text-gray-300">2012 built • epoxy coated • eco speed</p>
-          <a href="#contact" class="mt-4 inline-block rounded-full bg-gold-400 px-5 py-2 text-navy-900 font-semibold hover:shadow-lg transition">Inquire</a>
-        </div>
-      </article>
+        <!-- Tanker Card -->
+        <article
+          class="group relative rounded-2xl flex-shrink-0 w-[300px] md:w-[320px] overflow-hidden bg-navy-900 border border-gold-400/20 shadow-lg transition hover:shadow-2xl hover:scale-105 duration-500 snap-start"
+        >
+          <img
+            src="{% static 'images/tankers.avif' %}"
+            class="h-56 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:brightness-110"
+          />
+          <div
+            class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500"
+          ></div>
+          <div class="p-6 text-left relative z-10">
+            <h3 class="text-lg font-semibold text-gold-400">Tankers</h3>
+            <p class="mt-2 text-sm text-gray-300">
+              2012 built • epoxy coated • eco speed
+            </p>
+            <a
+              href="#contact"
+              class="mt-4 inline-block rounded-full bg-gold-400 px-5 py-2 text-navy-900 font-semibold hover:shadow-lg transition"
+              >Inquire</a
+            >
+          </div>
+        </article>
 
-      <!-- Passenger Vessel Card -->
-      <article class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-gold-400/20 shadow-lg transition hover:shadow-2xl hover:scale-105 duration-500">
-        <img src="{% static 'images/passenger-vessal.avif' %}" class="h-56 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:brightness-110">
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500"></div>
-        <div class="p-6 text-left relative z-10">
-          <h3 class="text-lg font-semibold text-gold-400">Passenger Vessels</h3>
-          <p class="mt-2 text-sm text-gray-300">DP system • deck crane • crew quarters</p>
-          <a href="#contact" class="mt-4 inline-block rounded-full bg-gold-400 px-5 py-2 text-navy-900 font-semibold hover:shadow-lg transition">Inquire</a>
-        </div>
-      </article>
-    </div>
+        <!-- Passenger Vessel Card -->
+        <article
+          class="group relative rounded-2xl flex-shrink-0 w-[300px] md:w-[320px] overflow-hidden bg-navy-900 border border-gold-400/20 shadow-lg transition hover:shadow-2xl hover:scale-105 duration-500 snap-start"
+        >
+          <img
+            src="{% static 'images/passenger-vessal.avif' %}"
+            class="h-56 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:brightness-110"
+          />
+          <div
+            class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500"
+          ></div>
+          <div class="p-6 text-left relative z-10">
+            <h3 class="text-lg font-semibold text-gold-400">
+              Passenger Vessels
+            </h3>
+            <p class="mt-2 text-sm text-gray-300">
+              DP system • deck crane • crew quarters
+            </p>
+            <a
+              href="#contact"
+              class="mt-4 inline-block rounded-full bg-gold-400 px-5 py-2 text-navy-900 font-semibold hover:shadow-lg transition"
+              >Inquire</a
+            >
+          </div>
+        </article>
+       
+
+<!-- Navigation Buttons -->
+<button
+  id="prev"
+  class="hidden absolute top-1/2 -left-8 -translate-y-1/2 bg-gold-400/80 text-navy-900 p-4 rounded-full shadow-lg hover:bg-gold-500/90 transition duration-300 items-center justify-center z-10"
+  aria-label="Previous Slide"
+>
+  <i class="fa-solid fa-chevron-left text-lg md:text-xl"></i>
+</button>
+
+<button
+  id="next"
+  class="hidden absolute top-1/2 -right-8 -translate-y-1/2 bg-gold-400/80 text-navy-900 p-4 rounded-full shadow-lg hover:bg-gold-500/90 transition duration-300 items-center justify-center z-10"
+  aria-label="Next Slide"
+>
+  <i class="fa-solid fa-chevron-right text-lg md:text-xl"></i>
+</button>    </div>
   </div>
 </section>
