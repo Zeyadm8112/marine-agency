@@ -7,13 +7,10 @@
     <div class="mt-10 grid items-center gap-10 md:grid-cols-2">
       <div class="text-center md:text-left">
         <p class="text-gray-300 leading-relaxed">
-          We are a dedicated shipbroker agency navigating global maritime markets with precision and integrity.
-          Our team connects shipowners and charterers across dry bulk, tankers, and offshore segments, delivering
-          transparent negotiations and seamless execution from first contact to final delivery.
+     {{about.first_paragraph }}
         </p>
         <p class="mt-4 text-gray-300 leading-relaxed">
-          With deep market intelligence and long-term relationships, we help clients optimize fleet strategies,
-          secure reliable charters, and uncover opportunities others miss.
+          {{ about.second_paragraph }}
         </p>
         <div class="mt-8 flex justify-center md:justify-start">
           <a
@@ -42,21 +39,21 @@
     <div class="mt-16 grid gap-6 sm:grid-cols-3 text-center">
       <div class="rounded-2xl bg-navy-800 border border-gold-400/20 p-8 shadow-lg transition hover:shadow-gold hover:-translate-y-1">
         <div class="text-4xl font-semibold text-gold-400">
-          <span class="counter" data-target="120" data-suffix="+">0</span>
+          <span class="counter" data-target="{{ about.clients_number }}" data-suffix="+">0</span>
         </div>
         <div class="mt-1 text-sm uppercase tracking-wide text-gray-400">Clients</div>
       </div>
 
       <div class="rounded-2xl bg-navy-800 border border-gold-400/20 p-8 shadow-lg transition hover:shadow-gold hover:-translate-y-1">
         <div class="text-4xl font-semibold text-gold-400">
-          <span class="counter" data-target="85">0</span>
+          <span class="counter" data-target="{{ about.vessels_number }}" data-suffix="+">0</span>
         </div>
         <div class="mt-1 text-sm uppercase tracking-wide text-gray-400">Vessels Available</div>
       </div>
 
       <div class="rounded-2xl bg-navy-800 border border-gold-400/20 p-8 shadow-lg transition hover:shadow-gold hover:-translate-y-1">
         <div class="text-4xl font-semibold text-gold-400">
-          <span class="counter" data-target="300" data-suffix="+">0</span>
+          <span class="counter" data-target="{{ about.deals_number }}" data-suffix="+">0</span>
         </div>
         <div class="mt-1 text-sm uppercase tracking-wide text-gray-400">Closed Deals</div>
       </div>
