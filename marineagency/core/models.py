@@ -112,8 +112,8 @@ class Ship(models.Model):
     )
     is_featured = models.BooleanField(
         default=False,
-        verbose_name="Show in Carousel",
-        help_text="If checked, this ship may be included in the homepage carousel.",
+        verbose_name="Feature this Ship",
+        help_text="If checked, this ship will be included in the homepage carousel.",
     )
     created_at = models.DateTimeField(auto_now_add=True)
 

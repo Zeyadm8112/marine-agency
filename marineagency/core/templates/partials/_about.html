@@ -1,12 +1,12 @@
 {% load static %}
-<section id="about" class="min-h-screen py-16 bg-navy-900">
+<section id="about" class="flex flex-col min-h-screen py-16 bg-navy-900">
   <div class="max-w-6xl mx-auto px-6 fade-up">
     <h2 class="text-center text-4xl md:text-5xl font-serif text-gold-400 mb-8">About Us</h2>
 
     <!-- Bio split -->
-    <div class="mt-8 grid items-center gap-8 md:grid-cols-2">
-      <div class="text-center md:text-left">
-        <p class="text-gray-300 leading-relaxed">
+    <div class="flex flex-row mt-8 mr-10 justify-between ">
+      <div class="flex flex-col justify-around basis-1/3 text-center md:text-left">
+        <p class="text-gray-300 text-sm leading-relaxed">
           {{ about.first_paragraph }}
         </p>
         <p class="mt-4 text-gray-300 leading-relaxed">
@@ -22,12 +22,12 @@
         </div>
       </div>
 
-      <div class="relative">
+      <div class="relative basis-2/3 ml-auto ">
         <div class="overflow-hidden rounded-2xl border border-gold-400/20 shadow-lg">
           <img
             src="{% static 'images/aboutus.avif' %}"
             alt="Seabound team and vessels"
-            class="w-full h-56 md:h-72 object-cover transform transition-transform duration-700 hover:scale-105 will-change-transform"
+            class="w-full h-50 object-cover transform transition-transform duration-700 hover:scale-105 will-change-transform"
             style="transform-origin: center;"
           />
         </div>
@@ -36,7 +36,7 @@
     </div>
 
     <!-- Stats -->
-    <div class="mt-12 grid gap-4 sm:grid-cols-3 text-center">
+    <div class="mt-12 text-center">
       <div class="rounded-2xl bg-navy-800 border border-gold-400/20 p-6 shadow-lg transition hover:shadow-gold hover:-translate-y-0.5">
         <div class="text-3xl font-semibold text-gold-400">
           <span class="counter" data-target="{{ about.clients_number }}" data-suffix="+">0</span>

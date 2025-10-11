@@ -56,7 +56,7 @@ class ShipAdmin(ModelAdmin):
 
 
 @admin.register(SocialLink)
-class SocialLinkAdmin(ModelAdmin):
+class SocialLinkAdmin(SingletonAdmin):
     fieldsets = (
         (
             "Social Media Links",
