@@ -120,13 +120,33 @@
           Join our growing community of satisfied clients and discover the perfect vessel for your needs.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-          <a href="#ships" class="bg-gold-400 text-navy-900 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105">
-            <i class="fas fa-ship mr-2"></i>View Our Fleet
-          </a>
-          <a href="#contact" class="border-2 border-gold-400 text-gold-400 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-400 hover:text-navy-900 hover:scale-105">
-            <i class="fas fa-phone mr-2"></i>Get In Touch
-          </a>
-        </div>
+          <a
+          href="#ships"
+          class="group relative inline-flex items-center justify-center bg-gold-400 text-navy-900 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 overflow-hidden"
+        >
+          <!-- Icon -->
+          <i
+            class="fas fa-ship mr-2 transform transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-12"
+          ></i>
+        
+          <!-- Text -->
+          <span>View Our Fleet</span>
+        
+          <!-- Floating arrow appears on hover -->
+          <span
+            class="absolute right-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-500"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </a>
+        <a
+        href="#contact"
+        class="inline-flex items-center justify-center border-2 border-gold-400 text-gold-400 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-400 hover:text-navy-900 hover:shadow-lg hover:scale-105 group"
+      >
+        <i class="fas fa-phone mr-2 transition-transform duration-300 group-hover:rotate-12 group-hover:-translate-y-[1px]"></i>
+        Get In Touch
+      </a>
+                    </div>
       </div>
     </div>
   </div>

@@ -1,17 +1,28 @@
 <!-- CONTACT -->
 {% load static %}
-<section id="contact" class="relative py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden">
-  <!-- Background image + overlay -->
-  <div class="absolute inset-0">
-    <img src="{% static 'images/contact2.avif' %}" alt="Contact Background" class="w-full h-full object-cover">
-    <div class="absolute inset-0 bg-gradient-to-br from-navy-900/90 via-navy-800/85 to-navy-900/90"></div>
-  </div>
+<section id="contact" class="relative py-12 sm:py-16 lg:py-24 xl:py-32 bg-gradient-to-br from-navy-800 via-navy-900 to-navy-800 overflow-hidden">
+<!-- Background image + overlay -->
+<div class="absolute inset-0 h-screen">
+  <img src="{% static 'images/contact2.avif' %}" 
+       alt="Contact Background" 
+       class="w-full h-full object-cover object-center">
+  <div class="absolute inset-0 bg-gradient-to-br from-navy-900/90 via-navy-800/85 to-navy-900/90"></div>
+</div> </div>
+  
 
   <!-- Background decorative elements -->
-  <div class="absolute inset-0 opacity-10">
-    <div class="absolute top-20 left-20 w-32 h-32 bg-gold-400 rounded-full blur-3xl animate-pulse-slow"></div>
-    <div class="absolute bottom-20 right-20 w-40 h-40 bg-blue-400 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 3s;"></div>
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-cyan-400 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 6s;"></div>
+  <div class="absolute inset-0 opacity-5">
+    <div
+      class="absolute top-20 left-20 w-40 h-40 bg-gold-400 rounded-full blur-3xl animate-pulse-slow"
+    ></div>
+    <div
+      class="absolute bottom-20 right-20 w-32 h-32 bg-blue-400 rounded-full blur-3xl animate-pulse-slow"
+      style="animation-delay: 3s"
+    ></div>
+    <div
+      class="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-400 rounded-full blur-3xl animate-pulse-slow"
+      style="animation-delay: 6s"
+    ></div>
   </div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -116,8 +127,9 @@
       </div>
 
       <!-- Right Column - Google Maps (2/3 width) -->
-      <div class="lg:col-span-2 lg:sticky lg:top-24">
-        <div class="glass-effect rounded-2xl p-4 sm:p-6 lg:p-8 overflow-hidden h-full">
+      <div class="lg:col-span-2 lg:sticky  lg:top-24">
+        <div class="glass-effect rounded-2xl p-4 sm:p-6 lg:p-8 overflow-hidden h-full 
+              transform transition-transform duration-300 ease-out hover:scale-105 will-change-transform">
           <div class="text-center mb-6 sm:mb-8">
             <h3 class="text-xl sm:text-2xl font-semibold text-gold-400 mb-4 sm:mb-6">
               Find Our Office
@@ -170,91 +182,129 @@
           <div class="mt-6 sm:mt-8 space-y-3">
             <a 
               href="tel:{{ contact.phone }}" 
-              class="flex items-center justify-center gap-3 bg-gold-400 text-navy-900 font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
+              class="group flex items-center justify-center gap-3 bg-gold-400 text-navy-900 font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
             >
-              <i class="fas fa-phone"></i>
+              <i class="fas fa-phone transition-transform duration-300 group-hover:rotate-12 group-hover:-translate-y-[1px]"></i>
               <span>Call Now</span>
             </a>
             <a 
               href="{{social_links.whatsapp_link}}" 
               target="_blank" 
               rel="noopener"
-              class="flex items-center justify-center gap-3 border-2 border-gold-400 text-gold-400 font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:bg-gold-400 hover:text-navy-900 hover:scale-105 btn-modern"
+              class="group flex items-center justify-center gap-3 border-2 border-gold-400 text-gold-400 font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:bg-gold-400 hover:text-navy-900 hover:scale-105 btn-modern"
             >
-              <i class="fab fa-whatsapp"></i>
+              <i class="fab fa-whatsapp transition-transform duration-300 group-hover:rotate-12 group-hover:-translate-y-[1px]"></i>
               <span>WhatsApp Chat</span>
             </a>
           </div>
-        </div>
+                  </div>
       </div>
     </div>
 
-    <!-- Send Message Section - Separate Box -->
-    <div class="mt-12 sm:mt-16 lg:mt-20 fade-up">
-      <div class="glass-effect rounded-2xl p-6 sm:p-8 lg:p-10 group hover:scale-105 transition-all duration-300">
-        <div class="text-center mb-6 sm:mb-8">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gold-400/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-gold-400 mx-auto mb-4 group-hover:bg-gold-400/30 transition-all duration-300">
-            <i class="fa-solid fa-paper-plane text-xl sm:text-2xl"></i>
-          </div>
-          <h3 class="text-xl sm:text-2xl font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors">
-            Send Message
-          </h3>
-          <p class="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto">
-            Have questions about our vessels or services? Send us a message and our expert team will get back to you within 24 hours.
-          </p>
-        </div>
-        
-        <form class="max-w-2xl mx-auto space-y-4 sm:space-y-6" onsubmit="event.preventDefault(); alert('Message sent! Our team will get back to you within 24 hours.');">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            <div>
-              <label for="name" class="block text-xs sm:text-sm font-semibold text-white mb-2">Full Name</label>
-              <input 
-                type="text" 
-                id="name"
-                placeholder="Enter your full name" 
-                required 
-                class="w-full bg-navy-900/50 backdrop-blur-sm border border-gold-400/30 focus:border-gold-400 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-400 outline-none transition-all duration-300 focus:ring-2 focus:ring-gold-400/20" 
-              />
-            </div>
-            
-            <div>
-              <label for="email" class="block text-xs sm:text-sm font-semibold text-white mb-2">Email Address</label>
-              <input 
-                type="email" 
-                id="email"
-                placeholder="Enter your email address" 
-                required 
-                class="w-full bg-navy-900/50 backdrop-blur-sm border border-gold-400/30 focus:border-gold-400 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-400 outline-none transition-all duration-300 focus:ring-2 focus:ring-gold-400/20" 
-              />
-            </div>
-          </div>
-          
-          <div>
-            <label for="message" class="block text-xs sm:text-sm font-semibold text-white mb-2">Your Message</label>
-            <textarea 
-              id="message"
-              rows="4" 
-              placeholder="Tell us about your vessel requirements or any questions you have..." 
-              required 
-              class="w-full bg-navy-900/50 backdrop-blur-sm border border-gold-400/30 focus:border-gold-400 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-400 outline-none transition-all duration-300 focus:ring-2 focus:ring-gold-400/20 resize-none"
-            ></textarea>
-          </div>
-          
-          <div class="text-center">
-            <button 
-              type="submit" 
-              class="bg-gold-400 text-navy-900 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
-            >
-              <i class="fas fa-paper-plane mr-2"></i>
-              Send Message
-            </button>
-          </div>
-        </form>
+<!-- Contact Section -->
+<div class="mt-12 sm:mt-16 lg:mt-20 fade-up grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+  <!-- Left: Newsletter Subscription -->
+  <div class="glass-effect rounded-2xl p-6 sm:p-8 lg:p-10 group hover:scale-105 transition-all duration-300">
+    <div class="text-center mb-6 sm:mb-8">
+      <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gold-400/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-gold-400 mx-auto mb-4 group-hover:bg-gold-400/30 transition-all duration-300">
+        <i class="fa-solid fa-envelope-open-text text-xl sm:text-2xl"></i>
       </div>
+      <h3 class="text-xl sm:text-2xl font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors">
+        Subscribe to Our Newsletter
+      </h3>
+      <p class="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto">
+        Stay updated with our latest vessels, insights, and special offers. Join our maritime community today!
+      </p>
     </div>
+
+    <form class="max-w-md mx-auto space-y-4 sm:space-y-6" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+      <div>
+        <label for="newsletter-email" class="block text-xs sm:text-sm font-semibold text-white mb-2">Email Address</label>
+        <input 
+          type="email" 
+          id="newsletter-email"
+          placeholder="Enter your email" 
+          required 
+          class="w-full bg-navy-900/50 backdrop-blur-sm border border-gold-400/30 focus:border-gold-400 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-400 outline-none transition-all duration-300 focus:ring-2 focus:ring-gold-400/20" 
+        />
+      </div>
+
+      <div class="text-center">
+        <button 
+          type="submit" 
+          class="bg-gold-400 text-navy-900 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
+        >
+          <i class="fas fa-envelope mr-2 transition-transform duration-300 hover:rotate-12 hover:-translate-y-[1px]"></i>
+          Subscribe
+        </button>
+      </div>
+          </form>
+  </div>
+
+  <!-- Right: Send Message -->
+  <div class="glass-effect rounded-2xl p-6 sm:p-8 lg:p-10 group hover:scale-105 transition-all duration-300">
+    <div class="text-center mb-6 sm:mb-8">
+      <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gold-400/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-gold-400 mx-auto mb-4 group-hover:bg-gold-400/30 transition-all duration-300">
+        <i class="fa-solid fa-paper-plane text-xl sm:text-2xl"></i>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors">
+        Send Message
+      </h3>
+      <p class="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto">
+        Have questions about our vessels or services? Send us a message and our expert team will get back to you within 24 hours.
+      </p>
+    </div>
+
+    <form class="max-w-2xl mx-auto space-y-4 sm:space-y-6" onsubmit="event.preventDefault(); alert('Message sent! Our team will get back to you within 24 hours.');">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div>
+          <label for="name" class="block text-xs sm:text-sm font-semibold text-white mb-2">Full Name</label>
+          <input 
+            type="text" 
+            id="name"
+            placeholder="Enter your full name" 
+            required 
+            class="w-full bg-navy-900/50 backdrop-blur-sm border border-gold-400/30 focus:border-gold-400 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-400 outline-none transition-all duration-300 focus:ring-2 focus:ring-gold-400/20" 
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-xs sm:text-sm font-semibold text-white mb-2">Email Address</label>
+          <input 
+            type="email" 
+            id="email"
+            placeholder="Enter your email address" 
+            required 
+            class="w-full bg-navy-900/50 backdrop-blur-sm border border-gold-400/30 focus:border-gold-400 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-400 outline-none transition-all duration-300 focus:ring-2 focus:ring-gold-400/20" 
+          />
+        </div>
+      </div>
+      <div>
+        <label for="message" class="block text-xs sm:text-sm font-semibold text-white mb-2">Your Message</label>
+        <textarea 
+          id="message"
+          rows="4" 
+          placeholder="Tell us about your vessel requirements or any questions you have..." 
+          required 
+          class="w-full bg-navy-900/50 backdrop-blur-sm border border-gold-400/30 focus:border-gold-400 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-400 outline-none transition-all duration-300 focus:ring-2 focus:ring-gold-400/20 resize-none"
+        ></textarea>
+      </div>
+      <div class="text-center">
+        <button 
+        type="submit" 
+        class="bg-gold-400 text-navy-900 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
+        >
+        <i class="fas fa-paper-plane mr-2 transition-transform duration-300 hover:rotate-12 hover:-translate-y-[1px]"></i>
+        Send Message
+      </button>
+            </div>
+    </form>
+  </div>
+
+</div>
 
     <!-- Additional Contact Options -->
-    <div class="mt-12 sm:mt-16 lg:mt-20 fade-up">
+    <div class="mt-12 sm:mt-16 lg:mt-20 hover:scale-105 fade-up">
       <div class="glass-effect rounded-2xl p-6 sm:p-8 lg:p-10 text-center">
         <h3 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-gold-400 mb-4 sm:mb-6">
           Prefer to Talk Directly?
@@ -265,22 +315,22 @@
         <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
           <a 
             href="tel:{{ contact.phone }}" 
-            class="inline-flex items-center justify-center bg-gold-400 text-navy-900 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
+            class="group inline-flex items-center justify-center bg-gold-400 text-navy-900 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
           >
-            <i class="fas fa-phone mr-2"></i>
+            <i class="fas fa-phone mr-2 transition-transform duration-300 group-hover:rotate-12 group-hover:-translate-y-[1px]"></i>
             Call Now
           </a>
           <a 
             href="{{social_links.whatsapp_link}}" 
             target="_blank" 
             rel="noopener"
-            class="inline-flex items-center justify-center border-2 border-gold-400 text-gold-400 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-400 hover:text-navy-900 hover:scale-105 btn-modern"
+            class="group inline-flex items-center justify-center border-2 border-gold-400 text-gold-400 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-400 hover:text-navy-900 hover:scale-105 btn-modern"
           >
-            <i class="fab fa-whatsapp mr-2"></i>
+            <i class="fab fa-whatsapp mr-2 transition-transform duration-300 group-hover:rotate-12 group-hover:-translate-y-[1px]"></i>
             WhatsApp Chat
           </a>
         </div>
-      </div>
+              </div>
     </div>
   </div>
 </section>

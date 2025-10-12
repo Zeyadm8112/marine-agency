@@ -34,63 +34,71 @@
       </p>
     </div>
 
-<!-- Featured Ships Swiper -->
-<div class="mb-20 sm:mb-24 lg:mb-28 fade-up">
-  <div class="relative">
-    <!-- Swiper container -->
-    <div class="swiper mySwiper pb-8"> <!-- ✅ Added bottom padding -->
-      <div class="swiper-wrapper">
-        {% for ship in featured_ships %}
-        <div class="swiper-slide">
-          <article
-            class="group relative rounded-2xl overflow-hidden bg-navy-900/50 backdrop-blur-sm border border-gold-400/20 shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-gold glass-effect"
-            data-target="{{ ship.id }}"
-          >
-            <div class="relative overflow-hidden">
-              <img
-                src="{{ ship.image.url }}"
-                alt="{{ ship.title }}"
-                class="h-40 sm:h-48 lg:h-56 w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-              />
-            </div>
+    <!-- Featured Ships Swiper -->
+    <div class="mb-20 sm:mb-24 lg:mb-28 fade-up">
+      <div class="relative">
+        <!-- Swiper container -->
+        <div class="swiper mySwiper pb-8">
+          <!-- ✅ Added bottom padding -->
+          <div class="swiper-wrapper">
+            {% for ship in featured_ships %}
+            <div class="swiper-slide">
+              <article
+                class="group relative rounded-2xl overflow-hidden bg-navy-900/50 backdrop-blur-sm border border-gold-400/20 shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-gold glass-effect"
+                data-target="{{ ship.id }}"
+              >
+                <div class="relative overflow-hidden">
+                  <img
+                    src="{{ ship.image.url }}"
+                    alt="{{ ship.title }}"
+                    class="h-40 sm:h-48 lg:h-56 w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                  />
+                </div>
 
-            <div class="p-4 sm:p-6">
-              <h3
-                class="text-lg sm:text-xl font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors"
-              >
-                {{ ship.title }}
-              </h3>
-              <p
-                class="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed"
-              >
-                {{ ship.subtitle }}
-              </p>
-              <a
-                href="#contact"
-                class="inline-flex items-center justify-center w-full bg-gold-400 text-navy-900 font-semibold px-4 py-2 sm:py-3 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
-              >
-                <i class="fas fa-envelope mr-2"></i>
-                Request Information
-              </a>
+                <div class="p-4 sm:p-6">
+                  <h3
+                    class="text-lg sm:text-xl font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors"
+                  >
+                    {{ ship.title }}
+                  </h3>
+                  <p
+                    class="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed"
+                  >
+                    {{ ship.subtitle }}
+                  </p>
+                  <a
+                    href="#contact"
+                    class="inline-flex items-center justify-center w-full bg-gold-400 text-navy-900 font-semibold px-6 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-gold/30 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] btn-modern group"
+                  >
+                    <i
+                      class="fas fa-envelope-open-text mr-2 text-navy-900 transition-transform duration-300 group-hover:rotate-12"
+                    ></i>
+                    <span class="tracking-wide"> More Information</span>
+                    <i
+                      class="fas fa-arrow-right ml-2 opacity-0 translate-x-[-6px] transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
+                    ></i>
+                  </a>
+                </div>
+              </article>
             </div>
-          </article>
+            {% endfor %}
+          </div>
+
+          <!-- ✅ Navigation buttons (inside swiper) -->
+          <div class="swiper-button-prev !text-gold-400"></div>
+          <div class="swiper-button-next !text-gold-400"></div>
+
+          <!-- ✅ Pagination (inside swiper but bottom-aligned) -->
+          <div
+            class="swiper-pagination !bottom-0 pt-8 flex justify-center"
+          ></div>
         </div>
-        {% endfor %}
       </div>
-
-      <!-- ✅ Navigation buttons (inside swiper) -->
-      <div class="swiper-button-prev !text-gold-400"></div>
-      <div class="swiper-button-next !text-gold-400"></div>
-
-      <!-- ✅ Pagination (inside swiper but bottom-aligned) -->
-      <div class="swiper-pagination !bottom-0 pt-8 flex justify-center"></div>
     </div>
-  </div>
-</div>
     <!-- Call to Action -->
     <div class="text-center fade-up">
       <div
-        class="glass-effect rounded-2xl p-6 sm:p-8 lg:p-10 max-w-2xl mx-auto"
+        class="glass-effect rounded-2xl p-6 sm:p-8 lg:p-10 max-w-2xl mx-auto transform transition-transform duration-300 ease-out hover:scale-[1.03] will-change-transform hover:-translate-y-1"
       >
         <h3
           class="text-xl sm:text-2xl lg:text-3xl font-semibold text-gold-400 mb-4 sm:mb-6"
@@ -102,14 +110,26 @@
           all available for purchase or charter.
         </p>
         <button
-          id="show-all-ships-btn"
-          class="inline-flex items-center justify-center bg-gold-400 text-navy-900 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
+        id="show-all-ships-btn"
+        class="group relative inline-flex items-center justify-center bg-gold-400 text-navy-900 font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 overflow-hidden"
+      >
+        <!-- Icon -->
+        <i
+          class="fa-solid fa-sailboat mr-2 transform transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-12"
+        ></i>
+      
+        <!-- Text -->
+        <span class="hidden sm:inline">View All Available Vessels</span>
+        <span class="sm:hidden">View All Ships</span>
+      
+        <!-- Floating arrow appears on hover -->
+        <span
+          class="absolute right-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-500"
         >
-          <i class="fa-solid fa-sailboat mr-2"></i>
-          <span class="hidden sm:inline">View All Available Vessels</span>
-          <span class="sm:hidden">View All Ships</span>
-        </button>
-      </div>
+          <i class="fa-solid fa-arrow-right"></i>
+        </span>
+      </button>
+            </div>
     </div>
   </div>
 
