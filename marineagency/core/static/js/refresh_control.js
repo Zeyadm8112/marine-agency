@@ -1,0 +1,145 @@
+// ============================
+// main.js (Always start from top, preloader-safe)
+// ============================
+
+// ✅ CRITICAL: Prevent browser scroll restoration (must be first)
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  
+  // ✅ Scroll to top IMMEDIATELY (before anything renders)
+  window.scrollTo(0, 0);
+  
+  // ✅ Handle browser back/forward navigation
+  window.addEventListener("pageshow", (event) => {
+    // Force scroll to top even when using back/forward buttons
+    window.scrollTo({ top: 0, behavior: "instant" });
+  });
+  
+  // ✅ Remove hash from URL if present (prevents auto-scroll to anchors)
+  if (window.location.hash) {
+    history.replaceState(null, null, window.location.pathname + window.location.search);
+  }
+  
+  // ✅ Also remove hash when clicking internal links (prevents #section URLs)
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (link) {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetEl = document.getElementById(targetId);
+      
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+        // Remove the hash from URL after scrolling
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
+    }
+  });
+  
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+  
+    // ✅ Scroll to top again when page fully loads
+    window.scrollTo({ top: 0, behavior: "auto" });
+  
+    const initApp = () => {
+      // ----------------------------
+      // 1. Update footer year
+      // ----------------------------
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+  
+      // ----------------------------
+      // 2. Navbar scroll effect
+      // ----------------------------
+      const navbar = document.getElementById("navbar");
+      if (navbar) {
+        const toggleNavSolid = () => navbar.classList.toggle("nav-solid", window.scrollY > 10);
+        window.addEventListener("scroll", toggleNavSolid);
+        toggleNavSolid(); // initial check
+      }
+  
+      // ----------------------------
+      // 3. Mobile menu toggle
+      // ----------------------------
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+      }
+  
+      // ----------------------------
+      // 4. Fade-up animation
+      // ----------------------------
+      const fadeEls = document.querySelectorAll(".fade-up");
+      if (fadeEls.length) {
+        const fadeObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+  
+        fadeEls.forEach(el => {
+          fadeObserver.observe(el);
+          // Animate elements already visible on load
+          if (el.getBoundingClientRect().top < window.innerHeight) {
+            el.classList.add("visible");
+          }
+        });
+      }
+  
+      // ----------------------------
+      // 5. Counter animation
+      // ----------------------------
+      const counters = document.querySelectorAll(".counter");
+      if (counters.length) {
+        const formatNumber = (n) => n.toLocaleString();
+  
+        const runCounter = (el) => {
+          const target = parseInt(el.getAttribute("data-target") || "0", 10);
+          const suffix = el.getAttribute("data-suffix") || "";
+          const duration = 1200;
+          const start = performance.now();
+  
+          const step = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const value = Math.floor(progress * target);
+            el.textContent = `${formatNumber(value)}${progress === 1 ? suffix : ""}`;
+            if (progress < 1) requestAnimationFrame(step);
+          };
+  
+          requestAnimationFrame(step);
+        };
+  
+        const counterObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              runCounter(entry.target);
+              counterObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.6 });
+  
+        counters.forEach(c => counterObserver.observe(c));
+      }
+    };
+  
+    // ----------------------------
+    // 6. Remove preloader and init app
+    // ----------------------------
+    if (preloader) {
+      preloader.style.transition = "opacity 0.5s ease";
+      preloader.style.opacity = "0";
+      setTimeout(() => {
+        preloader.remove();
+        window.scrollTo({ top: 0, behavior: "auto" }); // ensure top position after fade
+        initApp();
+      }, 500);
+    } else {
+      initApp();
+    }
+  });

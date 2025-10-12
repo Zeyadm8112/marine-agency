@@ -401,16 +401,39 @@ body {
       }
   }
   
-  /* Custom scrollbar for webkit browsers */
-  ::-webkit-scrollbar {
-      width: 8px;
+
+
+  .swiper-pagination-bullet {
+    background: #D4AF37;
+    opacity: 0.4;
+    width: 10px;
+    height: 10px;
+    transition: all 0.3s ease;
   }
   
-  ::-webkit-scrollbar-track {
-      background: #1e293b;
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 24px;
+    border-radius: 5px;
   }
   
-  ::-webkit-scrollbar-thumb {
-      background: #fbbf24;
-      border-radius: 4px;
+  .swiper-button-prev-custom.swiper-button-disabled,
+  .swiper-button-next-custom.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
   }
+
+  /* Hide scrollbar globally */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+
+  .swiper-pagination-bullet {
+    background-color: #d4af37 !important; /* gold color */
+    opacity: 0.6;
+  }
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+  

@@ -1,9 +1,13 @@
+
 // ============================
-// main.js (Preloader-safe, elements visible)
+// main.js (Always start from top, preloader-safe)
 // ============================
 
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
+
+  // ✅ Always scroll to top when refreshing or opening the page
+  window.scrollTo({ top: 0, behavior: "auto" });
 
   const initApp = () => {
     // ----------------------------
@@ -47,7 +51,7 @@ window.addEventListener("load", () => {
 
       fadeEls.forEach(el => {
         fadeObserver.observe(el);
-        // Animate elements already in viewport
+        // Animate elements already visible on load
         if (el.getBoundingClientRect().top < window.innerHeight) {
           el.classList.add("visible");
         }
@@ -91,16 +95,17 @@ window.addEventListener("load", () => {
   };
 
   // ----------------------------
-  // Remove preloader with fade, then initialize app
+  // 6. Remove preloader and init app
   // ----------------------------
   if (preloader) {
     preloader.style.transition = "opacity 0.5s ease";
     preloader.style.opacity = "0";
     setTimeout(() => {
       preloader.remove();
-      initApp(); // initialize everything after preloader removed
+      window.scrollTo({ top: 0, behavior: "auto" }); // just to be sure after fade
+      initApp();
     }, 500);
   } else {
-    initApp(); // if no preloader, just run
+    initApp();
   }
 });

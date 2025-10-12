@@ -1,101 +1,105 @@
 {% load static %}
-<section id="ships" class="py-12 sm:py-16 lg:py-24 xl:py-32 bg-gradient-to-br from-navy-800 via-navy-900 to-navy-800 relative overflow-hidden">
+<section
+  id="ships"
+  class="py-12 sm:py-16 lg:py-24 xl:py-32 bg-gradient-to-br from-navy-800 via-navy-900 to-navy-800 relative overflow-hidden"
+>
   <!-- Background decorative elements -->
   <div class="absolute inset-0 opacity-5">
-    <div class="absolute top-20 left-20 w-40 h-40 bg-gold-400 rounded-full blur-3xl animate-pulse-slow"></div>
-    <div class="absolute bottom-20 right-20 w-32 h-32 bg-blue-400 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 3s;"></div>
-    <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-400 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 6s;"></div>
+    <div
+      class="absolute top-20 left-20 w-40 h-40 bg-gold-400 rounded-full blur-3xl animate-pulse-slow"
+    ></div>
+    <div
+      class="absolute bottom-20 right-20 w-32 h-32 bg-blue-400 rounded-full blur-3xl animate-pulse-slow"
+      style="animation-delay: 3s"
+    ></div>
+    <div
+      class="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-400 rounded-full blur-3xl animate-pulse-slow"
+      style="animation-delay: 6s"
+    ></div>
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Section Header -->
     <div class="text-center mb-8 sm:mb-12 fade-up">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gold-400 mb-3 sm:mb-4 tracking-tight">
+      <h2
+        class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gold-400 mb-3 sm:mb-4 tracking-tight"
+      >
         Premium Vessels for Sale
       </h2>
       <div class="w-16 h-0.5 bg-gold-400 mx-auto mb-4 sm:mb-6"></div>
-      <p class="text-sm sm:text-base text-gray-300 max-w-3xl mx-auto leading-relaxed">
+      <p
+        class="text-sm sm:text-base text-gray-300 max-w-3xl mx-auto leading-relaxed"
+      >
         {{ ship_intro.subtitle_paragraph }}
       </p>
     </div>
 
-    <!-- Featured Ships Carousel -->
-    <div class="mb-12 sm:mb-16 lg:mb-20 fade-up">
-      <div class="relative">
-        <!-- Carousel Container -->
-        <div id="carousel" class="flex overflow-x-auto gap-4 sm:gap-6 lg:gap-8 scrollbar-hide snap-x snap-mandatory pb-4">
-          {% for ship in featured_ships %}
-            <article class="group relative rounded-2xl flex-shrink-0 w-[260px] sm:w-[300px] lg:w-[320px] overflow-hidden bg-navy-900/50 backdrop-blur-sm border border-gold-400/20 shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-gold snap-start glass-effect" data-target="{{ ship.id }}">
-              <!-- Image Container -->
-              <div class="relative overflow-hidden">
-                <img
-                  src="{{ ship.image.url }}"
-                  alt="{{ ship.title }}"
-                  class="h-40 sm:h-48 lg:h-56 w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-                />
-                <!-- Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                <!-- Floating Badge -->
-                <div class="absolute top-4 right-4 bg-gold-400/90 backdrop-blur-sm text-navy-900 px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  Featured
-                </div>
-              </div>
-              
-              <!-- Content -->
-              <div class="p-4 sm:p-6 relative z-10">
-                <h3 class="text-lg sm:text-xl font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors">
-                  {{ ship.title }}
-                </h3>
-                <p class="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
-                  {{ ship.subtitle }}
-                </p>
-                <a
-                  href="#contact"
-                  class="inline-flex items-center justify-center w-full bg-gold-400 text-navy-900 font-semibold px-4 py-2 sm:py-3 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
-                >
-                  <i class="fas fa-envelope mr-2"></i>
-                  Request Information
-                </a>
-              </div>
-            </article>
-          {% empty %}
-            <div class="col-span-full text-center py-12">
-              <div class="glass-effect rounded-2xl p-8 max-w-md mx-auto">
-                <i class="fas fa-ship text-4xl text-gold-400 mb-4"></i>
-                <p class="text-gray-400 text-lg">No featured vessels available at the moment.</p>
-                <p class="text-gray-500 text-sm mt-2">Please check back soon for new listings.</p>
-              </div>
+<!-- Featured Ships Swiper -->
+<div class="mb-20 sm:mb-24 lg:mb-28 fade-up">
+  <div class="relative">
+    <!-- Swiper container -->
+    <div class="swiper mySwiper pb-8"> <!-- ✅ Added bottom padding -->
+      <div class="swiper-wrapper">
+        {% for ship in featured_ships %}
+        <div class="swiper-slide">
+          <article
+            class="group relative rounded-2xl overflow-hidden bg-navy-900/50 backdrop-blur-sm border border-gold-400/20 shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-gold glass-effect"
+            data-target="{{ ship.id }}"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="{{ ship.image.url }}"
+                alt="{{ ship.title }}"
+                class="h-40 sm:h-48 lg:h-56 w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+              />
             </div>
-          {% endfor %}
+
+            <div class="p-4 sm:p-6">
+              <h3
+                class="text-lg sm:text-xl font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors"
+              >
+                {{ ship.title }}
+              </h3>
+              <p
+                class="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed"
+              >
+                {{ ship.subtitle }}
+              </p>
+              <a
+                href="#contact"
+                class="inline-flex items-center justify-center w-full bg-gold-400 text-navy-900 font-semibold px-4 py-2 sm:py-3 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
+              >
+                <i class="fas fa-envelope mr-2"></i>
+                Request Information
+              </a>
+            </div>
+          </article>
         </div>
-
-        <!-- Navigation Buttons -->
-        <button
-          id="prev"
-          class="hidden lg:flex absolute top-1/2 -left-4 lg:-left-8 -translate-y-1/2 bg-gold-400/90 backdrop-blur-sm text-navy-900 p-3 lg:p-4 rounded-full shadow-xl hover:bg-gold-500 hover:scale-110 transition-all duration-300 items-center justify-center z-20"
-          aria-label="Previous Slide"
-        >
-          <i class="fa-solid fa-chevron-left text-lg lg:text-xl"></i>
-        </button>
-
-        <button
-          id="next"
-          class="hidden lg:flex absolute top-1/2 -right-4 lg:-right-8 -translate-y-1/2 bg-gold-400/90 backdrop-blur-sm text-navy-900 p-3 lg:p-4 rounded-full shadow-xl hover:bg-gold-500 hover:scale-110 transition-all duration-300 items-center justify-center z-20"
-          aria-label="Next Slide"
-        >
-          <i class="fa-solid fa-chevron-right text-lg lg:text-xl"></i>
-        </button>
+        {% endfor %}
       </div>
-    </div>
 
+      <!-- ✅ Navigation buttons (inside swiper) -->
+      <div class="swiper-button-prev !text-gold-400"></div>
+      <div class="swiper-button-next !text-gold-400"></div>
+
+      <!-- ✅ Pagination (inside swiper but bottom-aligned) -->
+      <div class="swiper-pagination !bottom-0 pt-8 flex justify-center"></div>
+    </div>
+  </div>
+</div>
     <!-- Call to Action -->
     <div class="text-center fade-up">
-      <div class="glass-effect rounded-2xl p-6 sm:p-8 lg:p-10 max-w-2xl mx-auto">
-        <h3 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-gold-400 mb-4 sm:mb-6">
+      <div
+        class="glass-effect rounded-2xl p-6 sm:p-8 lg:p-10 max-w-2xl mx-auto"
+      >
+        <h3
+          class="text-xl sm:text-2xl lg:text-3xl font-semibold text-gold-400 mb-4 sm:mb-6"
+        >
           Explore Our Complete Fleet
         </h3>
         <p class="text-sm sm:text-base text-gray-300 mb-6 sm:mb-8">
-          Discover our full range of vessels, from cargo ships to luxury yachts, all available for purchase or charter.
+          Discover our full range of vessels, from cargo ships to luxury yachts,
+          all available for purchase or charter.
         </p>
         <button
           id="show-all-ships-btn"
@@ -110,23 +114,36 @@
   </div>
 
   <!-- Ships Modal -->
-  <div id="ships-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-navy-900/95 backdrop-blur-sm p-4 sm:p-6 lg:p-10 transition-opacity duration-300">
+  <div
+    id="ships-modal"
+    class="hidden fixed inset-0 z-50 overflow-y-auto bg-navy-900/95 backdrop-blur-sm p-4 sm:p-6 lg:p-10 transition-opacity duration-300"
+  >
     <!-- Loader -->
-    <div id="ships-loader" class="fixed inset-0 z-60 flex items-center justify-center bg-navy-900/90 hidden">
+    <div
+      id="ships-loader"
+      class="fixed inset-0 z-60 flex items-center justify-center bg-navy-900/90 hidden"
+    >
       <div class="flex flex-col items-center gap-4">
-        <div class="w-16 h-16 border-4 border-t-gold-400 border-b-transparent border-l-transparent border-r-transparent rounded-full animate-spin"></div>
+        <div
+          class="w-16 h-16 border-4 border-t-gold-400 border-b-transparent border-l-transparent border-r-transparent rounded-full animate-spin"
+        ></div>
         <p class="text-gold-400 font-medium">Loading vessels...</p>
       </div>
     </div>
 
-    <div class="max-w-7xl mx-auto bg-navy-900/90 backdrop-blur-sm rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 relative border border-gold-400/20">
+    <div
+      class="max-w-7xl mx-auto bg-navy-900/90 backdrop-blur-sm rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 relative border border-gold-400/20"
+    >
       <!-- Modal Header -->
       <div class="text-center mb-8 sm:mb-12">
-        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-gold-400 mb-4">
+        <h3
+          class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-gold-400 mb-4"
+        >
           Complete Vessel Inventory
         </h3>
         <p class="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto">
-          Browse our extensive collection of vessels available for purchase or charter
+          Browse our extensive collection of vessels available for purchase or
+          charter
         </p>
       </div>
 
@@ -140,49 +157,63 @@
       </button>
 
       <!-- Ships Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
+      >
         {% for ship in all_ships %}
-          <article class="group relative rounded-2xl overflow-hidden bg-navy-800/50 backdrop-blur-sm border border-gold-400/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 glass-effect">
-            <!-- Image -->
-            <div class="relative overflow-hidden">
-              <img
-                src="{{ ship.image.url }}"
-                alt="{{ ship.title }}"
-                class="h-40 sm:h-48 lg:h-56 w-full object-cover transition-all duration-700 group-hover:scale-110"
-              />
-              <!-- Overlay -->
-              <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-              <!-- Status Badge -->
-              <div class="absolute top-3 left-3 bg-gold-400/90 backdrop-blur-sm text-navy-900 px-2 py-1 rounded-full text-xs font-semibold">
-                Available
-              </div>
-            </div>
-            
-            <!-- Content -->
-            <div class="p-4 sm:p-6">
-              <h4 class="text-base sm:text-lg font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors">
-                {{ ship.title }}
-              </h4>
-              <p class="text-xs sm:text-sm text-gray-300 mb-4 leading-relaxed">
-                {{ ship.subtitle }}
-              </p>
-              <a 
-                href="#contact" 
-                class="inline-flex items-center justify-center w-full bg-gold-400 text-navy-900 font-semibold px-3 py-2 sm:py-3 rounded-lg text-xs sm:text-sm transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
-              >
-                <i class="fas fa-info-circle mr-2"></i>
-                Get Details
-              </a>
-            </div>
-          </article>
-        {% empty %}
-          <div class="col-span-full text-center py-12">
-            <div class="glass-effect rounded-2xl p-8 max-w-md mx-auto">
-              <i class="fas fa-ship text-4xl text-gold-400 mb-4"></i>
-              <p class="text-gray-400 text-lg">No vessels available at the moment.</p>
-              <p class="text-gray-500 text-sm mt-2">Please check back soon for new listings.</p>
+        <article
+          class="group relative rounded-2xl overflow-hidden bg-navy-800/50 backdrop-blur-sm border border-gold-400/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 glass-effect"
+        >
+          <!-- Image -->
+          <div class="relative overflow-hidden">
+            <img
+              src="{{ ship.image.url }}"
+              alt="{{ ship.title }}"
+              class="h-40 sm:h-48 lg:h-56 w-full object-cover transition-all duration-700 group-hover:scale-110"
+            />
+            <!-- Overlay -->
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"
+            ></div>
+            <!-- Status Badge -->
+            <div
+              class="absolute top-3 left-3 bg-gold-400/90 backdrop-blur-sm text-navy-900 px-2 py-1 rounded-full text-xs font-semibold"
+            >
+              Available
             </div>
           </div>
+
+          <!-- Content -->
+          <div class="p-4 sm:p-6">
+            <h4
+              class="text-base sm:text-lg font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors"
+            >
+              {{ ship.title }}
+            </h4>
+            <p class="text-xs sm:text-sm text-gray-300 mb-4 leading-relaxed">
+              {{ ship.subtitle }}
+            </p>
+            <a
+              href="#contact"
+              class="inline-flex items-center justify-center w-full bg-gold-400 text-navy-900 font-semibold px-3 py-2 sm:py-3 rounded-lg text-xs sm:text-sm transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
+            >
+              <i class="fas fa-info-circle mr-2"></i>
+              Get Details
+            </a>
+          </div>
+        </article>
+        {% empty %}
+        <div class="col-span-full text-center py-12">
+          <div class="glass-effect rounded-2xl p-8 max-w-md mx-auto">
+            <i class="fas fa-ship text-4xl text-gold-400 mb-4"></i>
+            <p class="text-gray-400 text-lg">
+              No vessels available at the moment.
+            </p>
+            <p class="text-gray-500 text-sm mt-2">
+              Please check back soon for new listings.
+            </p>
+          </div>
+        </div>
         {% endfor %}
       </div>
 
@@ -193,10 +224,11 @@
             Need Help Finding the Right Vessel?
           </h4>
           <p class="text-sm sm:text-base text-gray-300 mb-6">
-            Our expert brokers are here to help you find the perfect vessel for your needs.
+            Our expert brokers are here to help you find the perfect vessel for
+            your needs.
           </p>
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             class="inline-flex items-center justify-center bg-gold-400 text-navy-900 font-semibold px-6 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern"
           >
             <i class="fas fa-phone mr-2"></i>
