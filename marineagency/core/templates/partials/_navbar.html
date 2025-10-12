@@ -1,33 +1,108 @@
   <!-- NAVBAR -->
-  <header id="navbar" class="fixed inset-x-0 top-0 z-50 transition-all duration-500">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-      <a href="#home" class="flex items-center gap-2 font-serif text-gold-400 text-2xl font-semibold">
-        <svg class="h-7 w-7 text-gold-400" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2c4 2 8 6 8 10s-4 8-8 10-8-6-8-10S8 0 12 2z" />
-        </svg>
-        Seabound
-      </a>
-      <nav class="hidden md:flex gap-8 text-sm font-medium items-center">
+  <header id="navbar" class="fixed inset-x-0 top-0 z-50 transition-all duration-500 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14 sm:h-16">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-2 font-serif text-gold-400 text-lg sm:text-xl lg:text-2xl font-bold transition-all duration-300 hover:scale-105">
+          <svg class="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-gold-400 transition-all duration-300" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2c4 2 8 6 8 10s-4 8-8 10-8-6-8-10S8 0 12 2z" />
+          </svg>
+          <span class="hidden sm:inline">Seabound</span>
+          <span class="sm:hidden">SB</span>
+        </a>
 
-        <a href="#home" class="hover:text-gold-400 transition">Home</a>
-        <a href="#about" class="hover:text-gold-400 transition">About</a>
-        <a href="#ships" class="hover:text-gold-400 transition">Ships</a>
-        <a href="#contact" class="hover:text-gold-400 transition">Contact</a>
-        <a href="{{social_links.whatsapp_link}}" target="_blank" rel="noopener" a aria-label="Whatsapp" class="ml-4 rounded-full bg-gold-400 px-5 py-2 text-navy-900 font-semibold hover:shadow-gold transition">Get in touch</a>
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex gap-6 xl:gap-8 text-sm xl:text-base font-medium items-center">
+          <a href="#home" class="relative text-gray-300 hover:text-gold-400 transition-all duration-300 hover:scale-105 group">
+            <span class="relative z-10">Home</span>
+            <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></div>
+          </a>
+          <a href="#about" class="relative text-gray-300 hover:text-gold-400 transition-all duration-300 hover:scale-105 group">
+            <span class="relative z-10">About</span>
+            <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></div>
+          </a>
+          <a href="#ships" class="relative text-gray-300 hover:text-gold-400 transition-all duration-300 hover:scale-105 group">
+            <span class="relative z-10">Our Fleet</span>
+            <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></div>
+          </a>
+          <a href="#why-us" class="relative text-gray-300 hover:text-gold-400 transition-all duration-300 hover:scale-105 group">
+            <span class="relative z-10">Why Us</span>
+            <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></div>
+          </a>
+          <a href="#contact" class="relative text-gray-300 hover:text-gold-400 transition-all duration-300 hover:scale-105 group">
+            <span class="relative z-10">Contact</span>
+            <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></div>
+          </a>
+          
+          <!-- CTA Button -->
+          <a href="{{social_links.whatsapp_link}}" target="_blank" rel="noopener" aria-label="WhatsApp Contact" class="ml-4 bg-gold-400 text-navy-900 font-semibold px-4 xl:px-6 py-2 xl:py-3 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern">
+            <i class="fab fa-whatsapp mr-2"></i>
+            <span class="hidden xl:inline">Get in Touch</span>
+            <span class="xl:hidden">Contact</span>
+          </a>
       </nav>
-      <button id="menuBtn" class="md:hidden text-gold-400 focus:outline-none">
-        <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="lg:hidden text-gold-400 focus:outline-none transition-all duration-300 hover:scale-110 p-2">
+          <svg class="h-6 w-6 sm:h-8 sm:w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden bg-navy-900 border-t border-navy-700">
-      <div class="px-4 py-3 space-y-2 text-center">
-        <a href="#home" class="block py-2 hover:text-gold-400">Home</a>
-        <a href="#about" class="block py-2 hover:text-gold-400">About</a>
-        <a href="#ships" class="block py-2 hover:text-gold-400">Ships</a>
-        <a href="#contact" class="block py-2 hover:text-gold-400">Contact</a>
-        <a href="#contact" class="block bg-gold-400 text-navy-900 rounded-full py-2 font-semibold hover:shadow-gold transition">Get in touch</a>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-navy-900/95 backdrop-blur-sm border-t border-gold-400/20 transition-all duration-300">
+      <div class="px-4 py-6 space-y-4">
+        <!-- Mobile Navigation Links -->
+        <nav class="space-y-4">
+          <a href="#home" class="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-all duration-300 py-2 px-4 rounded-xl hover:bg-gold-400/10">
+            <i class="fas fa-home text-sm"></i>
+            <span>Home</span>
+          </a>
+          <a href="#about" class="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-all duration-300 py-2 px-4 rounded-xl hover:bg-gold-400/10">
+            <i class="fas fa-info-circle text-sm"></i>
+            <span>About Us</span>
+          </a>
+          <a href="#ships" class="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-all duration-300 py-2 px-4 rounded-xl hover:bg-gold-400/10">
+            <i class="fas fa-ship text-sm"></i>
+            <span>Our Fleet</span>
+          </a>
+          <a href="#why-us" class="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-all duration-300 py-2 px-4 rounded-xl hover:bg-gold-400/10">
+            <i class="fas fa-star text-sm"></i>
+            <span>Why Choose Us</span>
+          </a>
+          <a href="#contact" class="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-all duration-300 py-2 px-4 rounded-xl hover:bg-gold-400/10">
+            <i class="fas fa-phone text-sm"></i>
+            <span>Contact</span>
+          </a>
+        </nav>
+
+        <!-- Mobile CTA Buttons -->
+        <div class="pt-4 border-t border-gold-400/20 space-y-3">
+          <a href="{{social_links.whatsapp_link}}" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-gold-400 text-navy-900 font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:bg-gold-500 hover:shadow-lg btn-modern">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp Chat</span>
+          </a>
+          <a href="tel:{{ contact.phone }}" class="flex items-center justify-center gap-2 border-2 border-gold-400 text-gold-400 font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:bg-gold-400 hover:text-navy-900 btn-modern">
+            <i class="fas fa-phone"></i>
+            <span>Call Now</span>
+          </a>
+        </div>
+
+        <!-- Mobile Contact Info -->
+        <div class="pt-4 border-t border-gold-400/20">
+          <div class="space-y-2 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-envelope text-gold-400"></i>
+              <a href="mailto:{{ contact.email }}" class="hover:text-gold-400 transition-colors">{{ contact.email }}</a>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-clock text-gold-400"></i>
+              <span>{{ contact.open_time_1 }}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>

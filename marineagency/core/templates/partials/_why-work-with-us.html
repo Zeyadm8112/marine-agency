@@ -1,89 +1,169 @@
 {% load static %}
 <!-- WHY WORK WITH US -->
-<section id="why-us" class="py-24 bg-navy-900">
-  <div
-    class="max-w-6xl mx-auto px-6 grid gap-10 md:grid-cols-2 items-center fade-up"
-  >
-    <!-- Left: Image -->
-    <div class="relative order-1 md:order-none">
-      <img
-      src="{% static 'images/workwithus.avif' %}"
-              alt="Trusted maritime partnerships"
-        class="w-full h-80 md:h-[28rem] object-cover rounded-2xl border border-gold-400/20 shadow-xl"
-      />
-      <div
-        class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5"
-      ></div>
+<section id="why-us" class="py-12 sm:py-16 lg:py-24 xl:py-32 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-20 right-20 w-32 h-32 bg-gold-400 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute bottom-20 left-20 w-40 h-40 bg-blue-400 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+    <div class="absolute top-1/2 right-1/4 w-24 h-24 bg-cyan-400 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 4s;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-12 sm:mb-16 lg:mb-20 fade-up">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gold-400 mb-4 sm:mb-6 tracking-tight">
+        Why Choose Seabound?
+      </h2>
+      <div class="w-24 h-1 bg-gold-400 mx-auto mb-6 sm:mb-8"></div>
+      <p class="text-sm sm:text-base lg:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+        Three compelling reasons why industry leaders trust us to deliver exceptional maritime solutions and unmatched service excellence.
+      </p>
     </div>
 
-    <!-- Right: Reasons -->
-    <div>
-      <h2
-        class="text-3xl sm:text-4xl font-serif text-gold-400 text-center sm:text-left"
-      >
-        Why Work With Us
-      </h2>
-      <p
-        class="mt-3 text-gray-300 text-center sm:text-left max-w-2xl mx-auto sm:mx-0"
-      >
-        Three reasons clients trust us to deliver clarity and results at sea.
-      </p>
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
+      <!-- Content Column -->
+      <div class="order-2 lg:order-1 fade-up">
+        <div class="space-y-6 sm:space-y-8">
+          <!-- Feature 1: Transparent, Secure Transactions -->
+          <div class="glass-effect rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300">
+            <div class="flex items-start gap-4 sm:gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gold-400/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-gold-400 group-hover:bg-gold-400/30 transition-all duration-300">
+                  <i class="fa-solid fa-lock text-lg sm:text-xl"></i>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gold-400 mb-2 sm:mb-3 group-hover:text-gold-300 transition-colors">
+                  Transparent, Secure Transactions
+                </h3>
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                  Every transaction is handled with escrow protection, verified contracts, and trusted maritime protocols. Your investment is always secure with us.
+                </p>
+              </div>
+            </div>
+          </div>
 
-      <ul class="mt-10 space-y-8">
-        <!-- Transparent, Secure Transactions -->
-        <li class="flex items-start gap-5">
-          <span
-            class="mt-1 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gold-400/10 text-gold-400 shadow-inner shadow-gold-500/20"
-          >
-            <i class="fa-solid fa-lock text-lg"></i>
-          </span>
-          <div>
-            <h3 class="text-lg font-semibold text-white">
-              Transparent, Secure Transactions
-            </h3>
-            <p class="mt-1 text-gray-300">
-              Handled with escrow protection, verified contracts, and trusted
-              maritime protocols.
-            </p>
+          <!-- Feature 2: Data-Driven Market Insight -->
+          <div class="glass-effect rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300">
+            <div class="flex items-start gap-4 sm:gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gold-400/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-gold-400 group-hover:bg-gold-400/30 transition-all duration-300">
+                  <i class="fa-solid fa-chart-line text-lg sm:text-xl"></i>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gold-400 mb-2 sm:mb-3 group-hover:text-gold-300 transition-colors">
+                  Data-Driven Market Insight
+                </h3>
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                  Advanced analytics on vessel positions, tonnage, and freight trends in real time. Make informed decisions with our comprehensive market intelligence.
+                </p>
+              </div>
+            </div>
           </div>
-        </li>
-        
-        <!-- Data-Driven Market Insight -->
-        <li class="flex items-start gap-5">
-          <span
-            class="mt-1 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gold-400/10 text-gold-400 shadow-inner shadow-gold-500/20"
-          >
-            <i class="fa-solid fa-chart-line text-lg"></i>
-          </span>
-          <div>
-            <h3 class="text-lg font-semibold text-white">
-              Data-Driven Market Insight
-            </h3>
-            <p class="mt-1 text-gray-300">
-              Advanced analytics on vessel positions, tonnage, and freight
-              trends in real time.
-            </p>
-          </div>
-        </li>
 
-        <!-- Responsive Execution -->
-        <li class="flex items-start gap-5">
-          <span
-            class="mt-1 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gold-400/10 text-gold-400 shadow-inner shadow-gold-500/20"
-          >
-            <i class="fa-solid fa-anchor text-lg"></i>
-          </span>
-          <div>
-            <h3 class="text-lg font-semibold text-white">
-              Responsive Execution
-            </h3>
-            <p class="mt-1 text-gray-300">
-              Our brokers stay anchored in reliability — fast, clear, and
-              committed to closing deals.
-            </p>
+          <!-- Feature 3: Responsive Execution -->
+          <div class="glass-effect rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300">
+            <div class="flex items-start gap-4 sm:gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gold-400/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-gold-400 group-hover:bg-gold-400/30 transition-all duration-300">
+                  <i class="fa-solid fa-anchor text-lg sm:text-xl"></i>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gold-400 mb-2 sm:mb-3 group-hover:text-gold-300 transition-colors">
+                  Responsive Execution
+                </h3>
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                  Our brokers stay anchored in reliability — fast, clear, and committed to closing deals. Experience responsive service that gets results.
+                </p>
+              </div>
+            </div>
           </div>
-        </li>
-      </ul>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-8 sm:mt-12">
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            <a href="#ships" class="flex-1 bg-gold-400 text-navy-900 font-semibold px-6 py-3 sm:py-4 rounded-xl text-center transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:scale-105 btn-modern">
+              <i class="fas fa-ship mr-2"></i>
+              View Our Fleet
+            </a>
+            <a href="#contact" class="flex-1 border-2 border-gold-400 text-gold-400 font-semibold px-6 py-3 sm:py-4 rounded-xl text-center transition-all duration-300 hover:bg-gold-400 hover:text-navy-900 hover:scale-105 btn-modern">
+              <i class="fas fa-handshake mr-2"></i>
+              Partner With Us
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Column -->
+      <div class="order-1 lg:order-2 fade-up">
+        <div class="relative group">
+          <div class="aspect-video rounded-2xl overflow-hidden border border-gold-400/20 shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-gold">
+            <img
+              src="{% static 'images/workwithus.avif' %}"
+              alt="Trusted maritime partnerships and professional service"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+          <!-- Overlay gradient -->
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent rounded-2xl"></div>
+          <!-- Floating elements -->
+          <div class="absolute -top-4 -left-4 w-8 h-8 bg-gold-400 rounded-full animate-float"></div>
+          <div class="absolute -bottom-4 -right-4 w-6 h-6 bg-blue-400 rounded-full animate-float" style="animation-delay: 1s;"></div>
+          <!-- Trust indicators -->
+          <div class="absolute bottom-4 left-4 right-4 glass-effect rounded-xl p-4 backdrop-blur-sm">
+            <div class="flex items-center justify-between text-sm">
+              <div class="text-center">
+                <div class="text-gold-400 font-bold text-lg">15+</div>
+                <div class="text-gray-300 text-xs">Years Experience</div>
+              </div>
+              <div class="text-center">
+                <div class="text-gold-400 font-bold text-lg">500+</div>
+                <div class="text-gray-300 text-xs">Successful Deals</div>
+              </div>
+              <div class="text-center">
+                <div class="text-gold-400 font-bold text-lg">24/7</div>
+                <div class="text-gray-300 text-xs">Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Trust Indicators -->
+    <div class="mt-12 sm:mt-16 lg:mt-20 fade-up">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        <!-- Trust Badge 1 -->
+        <div class="glass-effect rounded-2xl p-4 sm:p-6 text-center group hover:scale-105 transition-all duration-300">
+          <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h4 class="text-sm sm:text-base font-semibold text-white mb-2">Fully Insured</h4>
+          <p class="text-xs sm:text-sm text-gray-400">Comprehensive coverage for all transactions</p>
+        </div>
+
+        <!-- Trust Badge 2 -->
+        <div class="glass-effect rounded-2xl p-4 sm:p-6 text-center group hover:scale-105 transition-all duration-300">
+          <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h4 class="text-sm sm:text-base font-semibold text-white mb-2">Certified Brokers</h4>
+          <p class="text-xs sm:text-sm text-gray-400">Licensed maritime professionals</p>
+        </div>
+
+        <!-- Trust Badge 3 -->
+        <div class="glass-effect rounded-2xl p-4 sm:p-6 text-center group hover:scale-105 transition-all duration-300">
+          <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-400 mb-2 group-hover:text-gold-300 transition-colors">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h4 class="text-sm sm:text-base font-semibold text-white mb-2">Global Network</h4>
+          <p class="text-xs sm:text-sm text-gray-400">Worldwide maritime connections</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
